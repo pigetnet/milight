@@ -1,0 +1,1 @@
+python /do/milight/python/control.py "192.168.0.14" 1 "on"

@@ -1,0 +1,1 @@
+python /do/milight/python/control.py $1 $2 "off"
