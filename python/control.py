@@ -22,9 +22,9 @@ if state == "off":
     print "Turning off"+str(id)
 
 if state == "dim":
-    controller.send(light.brightness(50,id))
+    controller.send(light.brightness(50, id))
     print "Turning dim"+str(id)
 
 if state == "bright":
-    controller.send(light.brightness(100,id))
+    controller.send(light.brightness(100, id))
     print "Turning bright"+str(id)
