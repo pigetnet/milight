@@ -1,2 +1,13 @@
 #!/bin/bash
-pip install milight
+# https://github.com/hanckmann/MiLight-Control-Interface
+/show/description "[MILIGHT] Install"
+
+if [ ! -d /do/milight/python ];then
+	/system/gitcloner hanckmann/MiLight-Control-Interface /do/milight/python
+
+	#Unauthorized characters
+	sed -i 's/×/x/' /do/milight/python/mci.py
+fi
+
+/do/milight/pair
+

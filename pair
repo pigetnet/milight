@@ -1,0 +1,22 @@
+#!/bin/bash
+/show/description "[MILIGHT] Pairing gateway"
+ip=$(/do/milight/scan)
+
+isIP=$(/show/isIP $ip)
+
+if [[ $isIP == "1" ]];then
+
+	repair=$(/string/searchString /etc/hosts "milight.local")
+	if [ $repair -eq 1 ];then
+		/string/replaceLine "/etc/hosts" "milight.local" "$ip milight.local" " "
+		/show/listecho "$ip --> milight.local" $WARN
+
+	else
+		/string/addLine "/etc/hosts" "$ip milight.local"
+                /show/listecho "$ip --> milight.local" $OK
+	fi
+#	/show/file /etc/hosts
+else
+	/show/listecho "No milight gateway founded" $ERR
+fi
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+ip=$(python3 /do/milight/python/milight.py --scan|grep "ip address"|awk '{print $4}')
+ip=${ip:1}
+echo $ip
